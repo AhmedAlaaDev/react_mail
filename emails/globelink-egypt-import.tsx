@@ -62,108 +62,63 @@ export const GlobelinkEgyptImportEmail = () => (
     <Body style={styles.body}>
       <Container style={styles.canvas}>
         {/* ── HERO ── */}
-        {/*
-          react-email's <Section> / <Row> / <Column> render as <table> cells,
-          which can't do position:absolute reliably across email clients.
-          We use a single-cell table with a raw <div> inside for the desktop
-          overlay layout, while the CSS @media block linearises it on mobile.
-        */}
         <Section style={{ padding: 0, margin: 0 }}>
-          <Row>
-            <Column>
-              {/* MSO conditional: desktop clients see the table-based layout */}
-              {/* eslint-disable-next-line react/no-danger */}
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  maxWidth: `${emailWidth}px`,
-                  height: "381px",
-                  overflow: "hidden",
-                  backgroundColor: brand.white,
-                  display: "block",
-                }}
-              >
-                {/* Left text block */}
-                <div
+          <Row style={{ width: "100%" }}>
+            {/* Left Column: Logo, Tagline, Headline */}
+            <Column style={styles.heroLeftColumn}>
+              <div style={{ padding: "50px 40px 50px 0" }}>
+                <Img
+                  src={logo}
+                  alt="Globelink Egypt logo"
+                  width="127"
+                  height="33"
+                  style={styles.customLogo}
+                  draggable={false}
+                />
+                <Text
                   style={{
-                    position: "absolute",
-                    left: 0,
-                    top: 0,
-                    width: "300px",
-                    height: "100%",
-                    padding: "50px 0 0 0",
-                    zIndex: 5,
+                    fontFamily: "Arial, Helvetica, sans-serif",
+                    color: brand.ink,
+                    fontSize: "9px",
+                    lineHeight: "14px",
+                    letterSpacing: "6px",
+                    margin: "18px 0 28px 0",
                   }}
                 >
-                  <Img
-                                    src={logo}
-                                    alt="Globelink Egypt logo"
-                                    width="127"
-                                    height="33"
-                                    style={styles.customLogo}
-                                    draggable={false}
-                                  />
-
-
-                  <span
-                    style={{
-                      fontFamily: "Arial, Helvetica, sans-serif",
-                      color: brand.ink,
-                      fontSize: "9px",
-                      lineHeight: "14px",
-                      letterSpacing: "6px",
-                      whiteSpace: "nowrap",
-                      display: "block",
-                      marginBottom: "50px",
-                      marginTop: "10px",
-                    }}
-                  >
-                    IN UNITY, WE LINK THE GLOBE
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: "Arial, Helvetica, sans-serif",
-                      color: brand.ink,
-                      fontSize: "28px",
-                      lineHeight: "34px",
-                      fontWeight: 900,
-                      display: "block",
-                    }}
-                  >
-                    LCL Imports
-                    <br />
-                    The World Is Closer
-                    <br />
-                    Than You Think
-                  </span>
-                </div>
-
-                {/* Hero image */}
-                <div
+                  IN UNITY, WE LINK THE GLOBE
+                </Text>
+                <Text
                   style={{
-                    position: "absolute",
-                    right: 0,
-                    bottom: 0,
-                    width: "431px",
-                    height: "408px",
-                    zIndex: 4,
-                    overflow: "hidden",
+                    fontFamily: "Arial, Helvetica, sans-serif",
+                    color: brand.ink,
+                    fontSize: "28px",
+                    lineHeight: "34px",
+                    fontWeight: 900,
+                    margin: 0,
                   }}
                 >
-                  <Img
-                    src="https://globelinkegypt.com/wp-content/uploads/2026/04/Group-3.png"
-                    width="431"
-                    height="408"
-                    alt="Globelink Hero"
-                    style={{
-                      display: "block",
-                      width: "431px",
-                      height: "408px",
-                    }}
-                  />
-                </div>
+                  LCL Imports
+                  <br />
+                  The World Is Closer
+                  <br />
+                  Than You Think
+                </Text>
               </div>
+            </Column>
+
+            {/* Right Column: Hero Image */}
+            <Column style={styles.heroRightColumn}>
+              <Img
+                src="https://globelinkegypt.com/wp-content/uploads/2026/04/Group-3.png"
+                width="280"
+                height="380"
+                alt="Globelink Import Hero"
+                style={{
+                  display: "block",
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
             </Column>
           </Row>
         </Section>
@@ -237,45 +192,45 @@ const ServiceIcon = ({
   if (icon === "usa")
     return (
       <Img
-                  src={ex}
-                  alt="Globelink Egypt logo"
-                  width="127"
-                  height="33"
-                  style={styles.iconColumn}
-                  draggable={false}
-                />
+        src={ex}
+        alt="USA Export icon"
+        width="56"
+        height="56"
+        style={styles.cardIcon}
+        draggable={false}
+      />
     );
   if (icon === "china")
     return (
       <Img
-                  src={di}
-                  alt="Globelink Egypt logo"
-                  width="127"
-                  height="33"
-                  style={styles.iconColumn}
-                  draggable={false}
-                />
+        src={di}
+        alt="Direct China icon"
+        width="56"
+        height="56"
+        style={styles.cardIcon}
+        draggable={false}
+      />
     );
   if (icon === "warehouse")
     return (
       <Img
-                  src={house}
-                  alt="Globelink Egypt logo"
-                  width="127"
-                  height="33"
-                  style={styles.iconColumn}
-                  draggable={false}
-                />
+        src={house}
+        alt="Warehouse icon"
+        width="56"
+        height="56"
+        style={styles.cardIcon}
+        draggable={false}
+      />
     );
   return (
     <Img
-                  src={market}
-                  alt="Globelink Egypt logo"
-                  width="127"
-                  height="33"
-                  style={styles.iconColumn}
-                  draggable={false}
-                />
+      src={market}
+      alt="Market Speed icon"
+      width="56"
+      height="56"
+      style={styles.cardIcon}
+      draggable={false}
+    />
   );
 };
 
@@ -285,11 +240,6 @@ const styles: Record<string, CSSProperties> = {
     margin: 0,
     backgroundColor: "#ffffff",
     fontFamily: "Arial, Helvetica, sans-serif",
-  },
-  customLogo: {
-    width: "127px",
-    height: "33px",
-    display: "block",
   },
   canvas: {
     width: "100%",
@@ -320,9 +270,10 @@ const styles: Record<string, CSSProperties> = {
   },
   
   iconColumn: {
-    width: "50px",
-    paddingRight: "10px",
+    width: "76px",
+    paddingRight: "12px",
     verticalAlign: "middle",
+    textAlign: "center" as const,
   },
  
   signoff: {
@@ -346,12 +297,31 @@ const styles: Record<string, CSSProperties> = {
     border: "none",           // remove the white border entirely
   },
   cardTitle: {
-    margin: "0 0 4px",        // was likely "0 0 16px" or similar — change to 4px
+    margin: "0 0 4px",
     color: brand.ink,
     fontFamily: "Arial, Helvetica, sans-serif",
     fontSize: "15px",
     lineHeight: "18px",
     fontWeight: 900,
+  },
+  cardIcon: {
+    width: "56px",
+    height: "56px",
+    display: "block",
+  },
+  customLogo: {
+    width: "127px",
+    height: "33px",
+    display: "block",
+  },
+  heroLeftColumn: {
+    width: "50%",
+    backgroundColor: brand.white,
+  },
+  heroRightColumn: {
+    width: "50%",
+    backgroundColor: brand.white,
+    textAlign: "center" as const,
   },
 };
 

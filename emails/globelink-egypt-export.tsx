@@ -65,20 +65,10 @@ export const GlobelinkEgyptExportEmail = () => (
       <Container style={styles.canvas}>
         {/* ── HERO ── */}
         <Section style={{ padding: 0, margin: 0 }}>
-          <Row>
-            <Column>
-              <div
-                style={{
-                  position: "relative",
-                  width: `${emailWidth}px`,
-                  height: "381px",
-                  margin: 0,
-                  padding: 0,
-                  overflow: "hidden",
-                  backgroundColor: brand.white,
-                  display: "block",
-                }}
-              >
+          <Row style={{ width: "100%" }}>
+            {/* Left Column: Logo, Tagline, Headline */}
+            <Column style={styles.heroLeftColumn}>
+              <div style={{ padding: "50px 40px 50px 0" }}>
                 <Img
                   src={logo}
                   alt="Globelink Egypt logo"
@@ -87,7 +77,7 @@ export const GlobelinkEgyptExportEmail = () => (
                   style={styles.customLogo}
                   draggable={false}
                 />
-                <span
+                <Text
                   style={{
                     fontFamily: "Arial, Helvetica, sans-serif",
                     color: brand.ink,
@@ -95,18 +85,12 @@ export const GlobelinkEgyptExportEmail = () => (
                     lineHeight: "16px",
                     letterSpacing: "8px",
                     fontWeight: 400,
-                    position: "absolute",
-                    left: "310px",
-                    top: "50px",
-                    zIndex: 10,
-                    whiteSpace: "nowrap",
-                    display: "block",
-                    margin: 0,
+                    margin: "18px 0 28px 0",
                   }}
                 >
                   IN UNITY, WE LINK THE GLOBE
-                </span>
-                <span
+                </Text>
+                <Text
                   style={{
                     fontFamily: "Arial, Helvetica, sans-serif",
                     color: brand.ink,
@@ -114,12 +98,7 @@ export const GlobelinkEgyptExportEmail = () => (
                     lineHeight: "32px",
                     fontWeight: 900,
                     letterSpacing: 0,
-                    display: "block",
                     margin: 0,
-                    position: "absolute",
-                    left: "0px",
-                    top: "190px",
-                    zIndex: 5,
                   }}
                 >
                   LCL Exports
@@ -127,32 +106,23 @@ export const GlobelinkEgyptExportEmail = () => (
                   The World Is Closer
                   <br />
                   Than You Think
-                </span>
-
-                {/* Hero image */}
-                <div
-                  style={{
-                    position: "absolute",
-                    left: "289px",
-                    bottom: "0px",
-                    width: "431px",
-                    height: "408px",
-                    zIndex: 4,
-                  }}
-                >
-                  <Img
-                    src={heroImageUrl}
-                    width="431"
-                    height="408"
-                    alt=""
-                    style={{
-                      display: "block",
-                      width: "431px",
-                      height: "408px",
-                    }}
-                  />
-                </div>
+                </Text>
               </div>
+            </Column>
+
+            {/* Right Column: Hero Image */}
+            <Column style={styles.heroRightColumn}>
+              <Img
+                src={heroImageUrl}
+                width="280"
+                height="380"
+                alt="Globelink Export Hero"
+                style={{
+                  display: "block",
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
             </Column>
           </Row>
         </Section>
@@ -341,8 +311,15 @@ const styles: Record<string, CSSProperties> = {
     width: "127px",
     height: "33px",
     display: "block",
-    transition: "transform 0.25s ease, filter 0.25s ease",
-    marginTop: "50px",
+  },
+  heroLeftColumn: {
+    width: "50%",
+    backgroundColor: brand.white,
+  },
+  heroRightColumn: {
+    width: "50%",
+    backgroundColor: brand.white,
+    textAlign: "center" as const,
   },
   
   cardBody: {
