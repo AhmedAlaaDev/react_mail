@@ -12,10 +12,6 @@ import {
 } from "react-email";
 import type { CSSProperties } from "react";
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
-
 const emailWidth = 720;
 
 const logo = "https://mesco221-my.sharepoint.com/:u:/g/personal/ahmed_alaa_corporate-mg_com/IQBS16Sek3G3SoSueMnRlKR6AcdX_7TiRq9SivBiPmHLbDw?e=tRbt0s&download=1";
@@ -61,203 +57,8 @@ const serviceCards = [
 
 export const GlobelinkEgyptImportEmail = () => (
   <Html>
-    <Head>
-      <style>{`
-        /* ── Reset ── */
-        * { box-sizing: border-box; }
-
-        /* ── Hero layout: desktop (≥601px) ── */
-        .hero-outer {
-          position: relative;
-          width: 100%;
-          max-width: ${emailWidth}px;
-          height: 381px;
-          overflow: hidden;
-          background-color: ${brand.white};
-          display: block;
-        }
-
-        .hero-left {
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 300px;
-          height: 100%;
-          padding: 50px 0 0 0;
-          z-index: 5;
-        }
-
-        .hero-logo {
-          display: block;
-          width: 130px;
-          height: 52px;
-          margin-bottom: 16px;
-        }
-
-        .hero-tagline {
-  position: relative;
-  top: -45px; /* move UP */
-  
-  font-family: Arial, Helvetica, sans-serif;
-  color: ${brand.ink};
-  font-size: 9px;
-  line-height: 14px;
-  letter-spacing: 6px;
-  white-space: nowrap;
-  display: block;
-
-  margin-left: 370px;
-  margin-bottom: 60px;
-}
-
-        .hero-headline {
-          font-family: Arial, Helvetica, sans-serif;
-          color: ${brand.ink};
-          font-size: 28px;
-          line-height: 34px;
-          font-weight: 900;
-          margin: 0;
-          display: block;
-        }
-
-        .hero-image-wrap {
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          width: 431px;
-          height: 408px;
-          z-index: 4;
-          overflow: hidden;
-        }
-
-        .hero-image-wrap img {
-          display: block;
-          width: 431px;
-          height: 408px;
-        }
-
-        /* ── Mobile hero (≤600px) ── */
-        @media only screen and (max-width: 600px) {
-          .hero-outer {
-            height: auto !important;
-            padding: 28px 20px 0 !important;
-          }
-
-          .hero-left {
-            position: relative !important;
-            left: auto !important;
-            top: auto !important;
-            width: 100% !important;
-            height: auto !important;
-            padding: 0 !important;
-          }
-
-          .hero-logo {
-            width: 110px !important;
-            height: auto !important;
-          }
-
-          .hero-tagline {
-            font-size: 8px !important;
-            letter-spacing: 3px !important;
-            white-space: normal !important;
-            margin-bottom: 16px !important;
-          }
-
-          .hero-headline {
-            font-size: 24px !important;
-            line-height: 30px !important;
-          }
-
-          .hero-image-wrap {
-            position: relative !important;
-            right: auto !important;
-            bottom: auto !important;
-            width: 100% !important;
-            height: auto !important;
-            margin-top: 20px !important;
-            text-align: center;
-          }
-
-          .hero-image-wrap img {
-            width: 100% !important;
-            max-width: 340px !important;
-            height: auto !important;
-            margin: 0 auto !important;
-          }
-        }
-
-        /* ── Content area ── */
-        .content-section {
-          padding: 48px 52px 24px !important;
-        }
-
-        @media only screen and (max-width: 600px) {
-          .content-section {
-            padding: 28px 20px 20px !important;
-          }
-        }
-
-        /* ── Service cards ── */
-        .card-row td {
-          vertical-align: middle;
-        }
-
-        .card-icon-col {
-          width: 50px;
-          padding-right: 10px;
-          vertical-align: middle;
-        }
-
-        @media only screen and (max-width: 600px) {
-          .card-icon-col {
-            width: 44px !important;
-          }
-          .card-title {
-            font-size: 13px !important;
-            line-height: 16px !important;
-          }
-          .card-body-text {
-            font-size: 12px !important;
-            line-height: 15px !important;
-          }
-        }
-
-        /* ── Typography ── */
-        .para {
-          margin: 0 0 22px !important;
-          color: ${brand.ink};
-          font-family: Arial, Helvetica, sans-serif;
-          font-size: 15px;
-          line-height: 22px;
-        }
-
-        .question {
-          margin: 0 0 22px !important;
-          color: ${brand.ink};
-          font-family: Arial, Helvetica, sans-serif;
-          font-size: 15px;
-          line-height: 18px;
-          font-weight: 900;
-        }
-
-        .signoff {
-          margin: 0;
-          color: ${brand.ink};
-          font-family: Arial, Helvetica, sans-serif;
-          font-size: 15px;
-          line-height: 19px;
-        }
-
-        @media only screen and (max-width: 600px) {
-          .para {
-            font-size: 14px !important;
-            line-height: 20px !important;
-          }
-        }
-      `}</style>
-    </Head>
     <Preview>LCL imports: the fast lane for your supply chain.</Preview>
+    <Head />
     <Body style={styles.body}>
       <Container style={styles.canvas}>
         {/* ── HERO ── */}
@@ -273,7 +74,6 @@ export const GlobelinkEgyptImportEmail = () => (
               {/* MSO conditional: desktop clients see the table-based layout */}
               {/* eslint-disable-next-line react/no-danger */}
               <div
-                className="hero-outer"
                 style={{
                   position: "relative",
                   width: "100%",
@@ -286,7 +86,6 @@ export const GlobelinkEgyptImportEmail = () => (
               >
                 {/* Left text block */}
                 <div
-                  className="hero-left"
                   style={{
                     position: "absolute",
                     left: 0,
@@ -308,7 +107,6 @@ export const GlobelinkEgyptImportEmail = () => (
 
 
                   <span
-                    className="hero-tagline"
                     style={{
                       fontFamily: "Arial, Helvetica, sans-serif",
                       color: brand.ink,
@@ -324,7 +122,6 @@ export const GlobelinkEgyptImportEmail = () => (
                     IN UNITY, WE LINK THE GLOBE
                   </span>
                   <span
-                    className="hero-headline"
                     style={{
                       fontFamily: "Arial, Helvetica, sans-serif",
                       color: brand.ink,
@@ -344,7 +141,6 @@ export const GlobelinkEgyptImportEmail = () => (
 
                 {/* Hero image */}
                 <div
-                  className="hero-image-wrap"
                   style={{
                     position: "absolute",
                     right: 0,
@@ -373,16 +169,16 @@ export const GlobelinkEgyptImportEmail = () => (
         </Section>
 
         {/* ── BODY CONTENT ── */}
-        <Section className="content-section" style={styles.content}>
-          <Text className="para" style={styles.paragraph}>
+        <Section style={styles.content}>
+          <Text style={styles.paragraph}>
             Hello,
           </Text>
-          <Text className="para" style={styles.paragraph}>
+          <Text style={styles.paragraph}>
             In business, time is money. That's why GlobeLink Egypt has created
             the "fast lane" for your LCL Imports, ensuring your goods arrive
             safely and on time.
           </Text>
-          <Text className="question" style={styles.question}>
+          <Text style={styles.question}>
             What Makes Our Import Service Different?
           </Text>
 
@@ -392,11 +188,11 @@ export const GlobelinkEgyptImportEmail = () => (
             ))}
           </Section>
 
-          <Text className="para" style={styles.paragraph}>
+          <Text style={styles.paragraph}>
             Keep Your Supply Chain Moving. We handle the details — from pickup
             to customs coordination — so you can focus on growing your business.
           </Text>
-          <Text className="signoff" style={styles.signoff}>
+          <Text style={styles.signoff}>
             Best Regards,
           </Text>
         </Section>
@@ -416,15 +212,15 @@ const ServiceCard = ({
   icon: (typeof serviceCards)[number]["icon"];
 }) => (
   <Section style={styles.card}>
-    <Row className="card-row">
-      <Column className="card-icon-col" style={styles.iconColumn}>
+    <Row>
+      <Column style={styles.iconColumn}>
         <ServiceIcon icon={icon} />
       </Column>
       <Column>
-        <Text className="card-title" style={styles.cardTitle}>
+        <Text style={styles.cardTitle}>
           {title}
         </Text>
-        <Text className="card-body-text" style={styles.cardBody}>
+        <Text style={styles.cardBody}>
           {body}
         </Text>
       </Column>
@@ -438,12 +234,6 @@ const ServiceIcon = ({
 }: {
   icon: (typeof serviceCards)[number]["icon"];
 }) => {
-  const props = {
-    width: "34",
-    height: "34",
-    style: { display: "block" } as CSSProperties,
-  };
-
   if (icon === "usa")
     return (
       <Img
@@ -495,6 +285,11 @@ const styles: Record<string, CSSProperties> = {
     margin: 0,
     backgroundColor: "#ffffff",
     fontFamily: "Arial, Helvetica, sans-serif",
+  },
+  customLogo: {
+    width: "127px",
+    height: "33px",
+    display: "block",
   },
   canvas: {
     width: "100%",
